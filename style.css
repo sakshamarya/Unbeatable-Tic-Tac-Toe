@@ -1,0 +1,33 @@
+body{
+    align-items: center;
+    background-color: cornsilk;
+}
+
+.mainBox{
+    /* border: 1px solid black; */
+    height: 305px;
+    width: 300px;
+    margin: 100px auto;
+}
+
+.element{
+    border: 1px solid black;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 50px;
+}
+
+.row{
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}
+
+#footer{
+    text-align: center;
+    background-color: cornsilk;
+    font-size: 2rem;
+    border: 1px solid black;
+}
