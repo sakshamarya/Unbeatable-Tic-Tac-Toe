@@ -3,16 +3,16 @@ let box = [['-','-','-'],['-','-','-'],['-','-','-']];
 function isFinal()
 {
 
-    // User win
+    // User lose
     if((box[0][0]=='X' && box[0][1]=='X' && box[0][2]=='X') || ((box[1][0]=='X' && box[1][1]=='X' && box[1][2]=='X')) || ((box[2][0]=='X' && box[2][1]=='X' && box[2][2]=='X')) || (box[0][0]=='X' && box[1][0]=='X' && box[2][0]=='X') || ((box[0][1]=='X' && box[1][1]=='X' && box[2][1]=='X')) || ((box[0][2]=='X' && box[1][2]=='X' && box[2][2]=='X')) || ((box[0][0]=='X' && box[1][1]=='X' && box[2][2]=='X')) || ((box[0][2]=='X' && box[1][1]=='X' && box[2][0]=='X')) )
     {
-        return 10;
+        return -10;
     }
 
-    // user lost
+    // user win
     else if((box[0][0]=='O' && box[0][1]=='O' && box[0][2]=='O') || ((box[1][0]=='O' && box[1][1]=='O' && box[1][2]=='O')) || ((box[2][0]=='O' && box[2][1]=='O' && box[2][2]=='O')) || (box[0][0]=='O' && box[1][0]=='O' && box[2][0]=='O') || ((box[0][1]=='O' && box[1][1]=='O' && box[2][1]=='O')) || ((box[0][2]=='O' && box[1][2]=='O' && box[2][2]=='O')) || ((box[0][0]=='O' && box[1][1]=='O' && box[2][2]=='O')) || ((box[0][2]=='O' && box[1][1]=='O' && box[2][0]=='O')))
     {
-        return -10;
+        return 10;
     }
 
     // draw
@@ -75,7 +75,7 @@ function minimax(turn)
             {
                 if(box[i][j]=='-')
                 {
-                    box[i][j]='X';
+                    box[i][j]='O';
 
                     let aage = minimax(1-turn);
 
@@ -110,7 +110,7 @@ function minimax(turn)
             {
                 if(box[i][j]=='-')
                 {
-                    box[i][j]='O';
+                    box[i][j]='X';
 
                     let aage = minimax(1-turn);
 
@@ -163,8 +163,8 @@ function userClick(x,y)
     }
     // console.log("Clicked " + x + y)
     let elementId = 'a'+x+y;
-    document.getElementById(elementId).innerHTML = 'X';
-    box[x][y]='X';
+    document.getElementById(elementId).innerHTML = 'O';
+    box[x][y]='O';
 
     let result = isFinal();
 
@@ -192,8 +192,8 @@ function userClick(x,y)
 
     // console.log("Ai selected " + AIx + AIy)
     elementId = 'a'+AIx+AIy;
-    document.getElementById(elementId).innerHTML = 'O';
-    box[AIx][AIy]='O';
+    document.getElementById(elementId).innerHTML = 'X';
+    box[AIx][AIy]='X';
 
 
     result = isFinal();
